@@ -197,5 +197,4 @@ pause_button = Button(button_ax_pause, 'Pause', color='lightgoldenrodyellow', ho
 pause_button.on_clicked(toggle_pause)
 
 
-
 plt.show()
