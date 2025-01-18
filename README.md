@@ -13,19 +13,19 @@
 **Installing Dependencies**
 
 1. Navigate to [Python Download Page](https://www.python.org/downloads/) and install python3 on your machine
-2. 
-        **<ins>Note: all python commands are denoted here as python3, but on your machine they may be python or something else</ins>**
 
-3. Create a virtual environment by running
+   **<ins>Note: all python commands are denoted here as python3, but on your machine they may be python or something else</ins>**
+   
+2. Create a virtual environment by running
  
         python3 -m venv foo
 
-4. Activate the virtual environment by running
+3. Activate the virtual environment by running
 
         . foo/bin/activate
 
 
-5. In your terminal, run the command
+4. In your terminal, run the command
 
         pip install -r PlanetoPoints/requirements.txt -r
    
