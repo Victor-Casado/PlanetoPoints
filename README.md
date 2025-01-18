@@ -8,7 +8,7 @@ This program calculates the best-fitting plane for a set of 3D points using grad
 
 #### Input Methods
 
-* Random Points: The program makes a bunch of random 3D points for you.
+* Random Points: The program makes random 3D points for you.
 
 * Custom Points: You type in the coordinates for your own points.
 
