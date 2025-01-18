@@ -43,7 +43,7 @@ The program visualizes the best run from all the restarts using a 3D animation. 
 
 1. Navigate to [Python Download Page](https://www.python.org/downloads/) and install python3 on your machine
 
-   **<ins>Note: The commands in this guide use python3 to refer to Python. Depending on your system, the command may be python or another variation. If you encounter issues, refer to your Python installation guide.</ins>**
+   **<ins>Note: The commands in this guide use python3 to refer to Python. Depending on your system, the command may be python or another variation.</ins>**
    
 2. Create a virtual environment by running
  
