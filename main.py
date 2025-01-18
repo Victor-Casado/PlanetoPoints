@@ -5,7 +5,7 @@ from matplotlib.widgets import Button
 import sys
 
 MAX_ITER = 5000  # Gradient descent iterations per restart
-LEARNING_RATE = 0.01/(MAX_ITER)  #Rate at which the plane shifts each iteration
+LEARNING_RATE = 0.01 / MAX_ITER  #Rate at which the plane shifts each iteration
 NUM_RESTARTS = 20  # Number of random starts for gradient descent
 everyXthFrame = 100  # max_iter / this number = number of frames shown in animation
 INITIALINTERVAL = 150  # Initial speed of animation (bigger is slower)
@@ -43,7 +43,7 @@ if choice == 1:
             print("Please request at least 2 points")
 
     points = np.random.rand(numPoints, 3) * 5
-
+    print(points)
 if choice == 2:
     numPoints = 0
     waitingForInput = True
@@ -71,21 +71,22 @@ if choice == 2:
                 except:
                     pass
         points.append([x, y, z])
-
     points = np.array(points)
 
 if choice == 3:
-    points = np.array([ #hardcoded array
-        [1, 2, 1],
-        [1, 2, 2],
-        [3, 3, 3],
-        [4, 4, 4],
-        [5, 5, 5],
-        [1, 1, 3],
-        [2, 3, 3],
-        [3, 5, 5],
-        [4, 5, 7],
-        [5, 6, 7]])
+    points = np.array([
+ [1.38903264, 0.88689354, 3.25924201],
+ [2.05786699, 3.31378005, 3.29743732],
+ [2.90033467, 2.5417623,  3.90987764],
+ [2.11458131, 4.58291963, 2.92590216],
+ [2.45021993, 4.21234095, 2.87264819],
+ [1.82159055, 4.15050984, 3.30568911],
+ [0.94086427, 3.10532725, 1.75235341],
+ [1.30627445, 3.24604035, 1.55147889],
+ [2.2647553,  0.68562324, 1.46758331],
+ [4.39402993, 0.57339171, 4.22440753],
+ [0.70518861, 3.84625175, 0.97381609],
+ [4.49300455, 2.1234734,  2.35837945]])
 if choice == 4:
     sys.exit()
 
@@ -113,12 +114,12 @@ def compute_gradient(plane_params, points):
         grad_d += grad_common
     return np.array([grad_a, grad_b, grad_c, grad_d])
 
-def gradient_descent(points, max_iter=MAX_ITER, learning_rate=LEARNING_RATE):
+def gradient_descent(points, max_iter=MAX_ITER):
     current_solution = (2 * np.random.rand(4)) - 1
     history = []
     for iter in range(max_iter + 1):
         gradient = compute_gradient(current_solution, points)
-        current_solution -= learning_rate * gradient
+        current_solution -= LEARNING_RATE * gradient
         if (iter % everyXthFrame == 0): #store info for animation
             history.append(current_solution.copy())
     return history
@@ -195,6 +196,5 @@ reverse_button.on_clicked(reverse_animation)
 button_ax_pause = plt.axes([0.8, 0.0, 0.15, 0.05])  # x, y, width, height
 pause_button = Button(button_ax_pause, 'Pause', color='lightgoldenrodyellow', hovercolor='lightcoral') #pause/play button
 pause_button.on_clicked(toggle_pause)
-
 
 plt.show()
