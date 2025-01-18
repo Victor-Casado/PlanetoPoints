@@ -2,7 +2,7 @@
 ## Overview
 ### Purpose
 
-This program helps find the best-fitting plane for a  3D points using gradient descent. It tries to make the plane as close as possible to all the points by minimizing the total squared distance. The program is interactive, letting you pick how to input points, runs multiple tries to get the best fit, and shows the process with a cool 3D animation.
+This program calculates the best-fitting plane for a set of 3D points using gradient descent. By minimizing the total squared distance between the points and the plane, it ensures an optimal fit. The program is interactive, letting you pick how to input points, runs multiple tries to get the best fit, and shows the process with a dynamic 3D animation.
 
 ### Key Features
 
@@ -16,11 +16,11 @@ This program helps find the best-fitting plane for a  3D points using gradient d
 
 #### Gradient Descent Optimization
 
-The program uses gradient descent to tweak the plane step by step until it fits the points as well as possible. It also runs multiple random restarts so it doesn’t get stuck in local minima.
+The program uses gradient descent to tweak the plane to minimize the total squared distance to the points. To improve accuracy, the program performs multiple random restarts, avoiding issues with local minima.
 
 #### 3D Animation
 
-The best run out of all the restarts is animated in 3D so you can watch the plane "learn" to fit the points. It shows the points, and the plane evolving through multiple restarts. The program also allows the user to pause, play, and reverse the direction of the animation.
+The program visualizes the best run from all the restarts using a 3D animation. This animation shows the points and the plane as it evolves to minimize the total squared distance.
 
 #### Libraries Used
 
@@ -43,7 +43,7 @@ The best run out of all the restarts is animated in 3D so you can watch the plan
 
 1. Navigate to [Python Download Page](https://www.python.org/downloads/) and install python3 on your machine
 
-   **<ins>Note: all python commands are denoted here as python3, but on your machine they may be python or something else</ins>**
+   **<ins>Note: The commands in this guide use python3 to refer to Python. Depending on your system, the command may be python or another variation. If you encounter issues, refer to your Python installation guide.</ins>**
    
 2. Create a virtual environment by running
  
