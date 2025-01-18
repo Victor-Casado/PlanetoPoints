@@ -8,8 +8,6 @@ This program helps find the best-fitting plane for a  3D points using gradient d
 
 #### Input Methods
 
-You can pick one of three ways to define your points:
-
 * Random Points: The program makes a bunch of random 3D points for you.
 
 * Custom Points: You type in the coordinates for your own points.
@@ -23,12 +21,6 @@ The program uses gradient descent to tweak the plane step by step until it fits 
 #### 3D Animation
 
 The best run out of all the restarts is animated in 3D so you can watch the plane "learn" to fit the points. It shows the points, and the plane evolving through multiple restarts. The program also allows the user to pause, play, and reverse the direction of the animation.
-
-#### Interactivity
-
-* Through the command line, where you choose how to input points and set options.
-
-* Through buttons in the animation window to adjust how it plays out.
 
 #### Libraries Used
 
