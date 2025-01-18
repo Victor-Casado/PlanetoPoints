@@ -20,9 +20,14 @@
  
         python3 -m venv foo
 
-3. Activate the virtual environment by running
+3. Activate the virtual environment
+
+   On linux/mac (I believe but have not tested on mac):
 
         . foo/bin/activate
+   On windows:
+
+        . foo/Scripts/activate
 
 
 4. In your terminal, run the command
