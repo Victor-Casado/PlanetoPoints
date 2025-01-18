@@ -1,7 +1,7 @@
 # Linear Algebra Semester 1 Reflection
 ## Overview
-## Installation Guide
-# Install Guide:
+
+## Install Guide:
 
 **Cloning the Project**
 
