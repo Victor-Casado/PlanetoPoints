@@ -13,6 +13,7 @@ animation_direction = 1  # 1 for forward, -1 for backward
 current_frame = 0  # Current frame index
 is_paused = False #Whether the animation is paused (used for pause, play buttons, dont touch)
 
+#This sanitizes user input, and passes it on in a variable called "points" which is the points the plane tries to optimize
 choice = "hi" #placeholder
 waitingForInput = True
 while waitingForInput:
@@ -56,7 +57,6 @@ if choice == 2:
             numPoints = int(userIn)
         except:
             print("Please input at least 2 points")
-
     points = []
     for i in range(numPoints):
         x, y, z = 0, 0, 0
@@ -89,7 +89,7 @@ if choice == 3:
  [4.49300455, 2.1234734,  2.35837945]])
 if choice == 4:
     sys.exit()
-
+#user input ends here
 def projection_distance_to_plane(plane_params, point):
     a, b, c, d = plane_params
     x, y, z = point
@@ -148,7 +148,7 @@ best_plane, best_history = fit_plane_with_multiple_starts(points)
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
-def update_ani_with_direction(frame):
+def update_ani_with_direction(frame): #"ani" = animation for the rest of the codebase
     global current_frame
     current_frame += animation_direction #allows for reversal of direction
     if current_frame < 0:
@@ -188,7 +188,7 @@ def toggle_pause(event):
         is_paused = not is_paused
         update_ani(current_frame)
         pause_button.label.set_text('Play')
-
+#buttons:
 button_ax_reverse = plt.axes([0.8, 0.06, 0.15, 0.05])  # x, y, width, height
 reverse_button = Button(button_ax_reverse, 'Reverse', color='lightgoldenrodyellow', hovercolor='lightcoral') #reverse animation direction button
 reverse_button.on_clicked(reverse_animation)
