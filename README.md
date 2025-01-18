@@ -30,9 +30,9 @@
         . foo/Scripts/activate
 
 
-4. In your terminal, run the command
+4. In your terminal, run the command (where the -r is placed depends on system, but the terminal should tell you)
 
-        pip install -r PlanetoPoints/requirements.txt -r
+        pip install -r PlanetoPoints/requirements.txt
    
 ## Launch Codes
 
