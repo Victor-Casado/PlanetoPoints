@@ -5,15 +5,15 @@ from matplotlib.widgets import Button
 import sys
 
 MAX_ITER = 5000  # Gradient descent iterations per restart
-LEARNING_RATE = 0.01/(MAX_ITER)  # Don't touch
+LEARNING_RATE = 0.01/(MAX_ITER)  #Rate at which the plane shifts each iteration
 NUM_RESTARTS = 20  # Number of random starts for gradient descent
 everyXthFrame = 100  # max_iter / this number = number of frames shown in animation
 INITIALINTERVAL = 150  # Initial speed of animation (bigger is slower)
 animation_direction = 1  # 1 for forward, -1 for backward
 current_frame = 0  # Current frame index
-is_paused = False
+is_paused = False #Whether the animation is paused (used for pause, play buttons, dont touch)
 
-choice = "hi"
+choice = "hi" #placeholder
 waitingForInput = True
 while waitingForInput:
     print("\nChoose how to input points:")
@@ -23,7 +23,7 @@ while waitingForInput:
     print("4. Quit")
     choice = input(">")
     try:
-        assert 0 < int(choice) and int(choice) < 5
+        assert 0 < int(choice) and int(choice) < 5 #sanitize input
         waitingForInput = False
         choice = int(choice)
     except:
@@ -36,7 +36,7 @@ if choice == 1:
         print("\nInput the number of points:")
         userIn = input(">")
         try:
-            assert 1 < int(userIn)
+            assert 1 < int(userIn) #sanitize input
             waitingForInput = False
             numPoints = int(userIn)
         except:
@@ -51,7 +51,7 @@ if choice == 2:
         print("\nInput the number of points:")
         userIn = input(">")
         try:
-            assert 1 < int(userIn)
+            assert 1 < int(userIn) #sanitize input
             waitingForInput = False
             numPoints = int(userIn)
         except:
@@ -66,7 +66,7 @@ if choice == 2:
                 print(f"\nInput the {label} coordinate for point number {i + 1}:")
                 userIn = input(">")
                 try:
-                    coord = int(userIn)
+                    coord = int(userIn) #sanitize input
                     waitingForInput = False
                 except:
                     pass
@@ -75,7 +75,7 @@ if choice == 2:
     points = np.array(points)
 
 if choice == 3:
-    points = np.array([
+    points = np.array([ #hardcoded array
         [1, 2, 1],
         [1, 2, 2],
         [3, 3, 3],
@@ -119,7 +119,7 @@ def gradient_descent(points, max_iter=MAX_ITER, learning_rate=LEARNING_RATE):
     for iter in range(max_iter + 1):
         gradient = compute_gradient(current_solution, points)
         current_solution -= learning_rate * gradient
-        if (iter % everyXthFrame == 0):
+        if (iter % everyXthFrame == 0): #store info for animation
             history.append(current_solution.copy())
     return history
 
@@ -132,7 +132,7 @@ def fit_plane_with_multiple_starts(points, n_restarts=NUM_RESTARTS):
         history = gradient_descent(points)
         final_plane = history[-1]
         total_error = np.sum([projection_distance_to_plane(final_plane, point) for point in points])
-        if total_error < lowest_error:
+        if total_error < lowest_error: #picks best version
             lowest_error = total_error
             best_solution = final_plane
             best_history = history
@@ -149,7 +149,7 @@ ax = fig.add_subplot(111, projection='3d')
 
 def update_ani_with_direction(frame):
     global current_frame
-    current_frame += animation_direction
+    current_frame += animation_direction #allows for reversal of direction
     if current_frame < 0:
         current_frame = 0
     elif current_frame >= len(best_history):
@@ -170,7 +170,7 @@ def update_ani(frame):
     ax.set_title(f'Iteration: {(frame) * everyXthFrame}/{(len(best_history) - 1) * everyXthFrame}')
     ax.legend()
 
-ani = FuncAnimation(fig, update_ani_with_direction, frames=len(best_history), interval=INITIALINTERVAL, repeat=True)
+ani = FuncAnimation(fig, update_ani_with_direction, frames=len(best_history), interval=INITIALINTERVAL, repeat=True) #what actually runs the animation
 
 def reverse_animation(event):
     global animation_direction
@@ -189,11 +189,11 @@ def toggle_pause(event):
         pause_button.label.set_text('Play')
 
 button_ax_reverse = plt.axes([0.8, 0.06, 0.15, 0.05])  # x, y, width, height
-reverse_button = Button(button_ax_reverse, 'Reverse', color='lightgoldenrodyellow', hovercolor='lightcoral')
+reverse_button = Button(button_ax_reverse, 'Reverse', color='lightgoldenrodyellow', hovercolor='lightcoral') #reverse animation direction button
 reverse_button.on_clicked(reverse_animation)
 
 button_ax_pause = plt.axes([0.8, 0.0, 0.15, 0.05])  # x, y, width, height
-pause_button = Button(button_ax_pause, 'Pause', color='lightgoldenrodyellow', hovercolor='lightcoral')
+pause_button = Button(button_ax_pause, 'Pause', color='lightgoldenrodyellow', hovercolor='lightcoral') #pause/play button
 pause_button.on_clicked(toggle_pause)
 
 
