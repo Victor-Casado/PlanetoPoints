@@ -41,10 +41,5 @@
 2. Run the App:
 
         $ python3 main.py
-   
-**or**
 
-2. Run the App:
-
-        $ python main.py
    
