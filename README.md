@@ -70,6 +70,6 @@ The program visualizes the best run from all the restarts using a 3D animation. 
 
 2. Run the App:
 
-        $ python3 main.py
+        $ python3 PlanetoPoints/main.py
 
    
